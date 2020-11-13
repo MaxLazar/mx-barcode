@@ -182,6 +182,19 @@ class Mx_barcode
     {
         ee()->TMPL->log_item('&nbsp;&nbsp;***&nbsp;&nbsp;'.$this->package." - $method debug: ".$message);
     }
+
+    // ----------------------------------------
+    //  Plugin Usage
+    // ----------------------------------------
+
+    // This function describes how the plugin is used.
+    //  Make sure and use output buffering
+
+    public static function usage()
+    {
+        // for performance only load README if inside control panel
+        return REQ === 'CP' ? file_get_contents(dirname(__FILE__).'/README.md') : null;
+    }
 }
 // END CLASS
 
