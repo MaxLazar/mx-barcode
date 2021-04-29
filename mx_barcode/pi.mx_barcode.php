@@ -111,17 +111,17 @@ class Mx_barcode
      */
     public function __construct()
     {
-        $this->_cache_path = (!$this->_cache_path) ? str_replace('\\', '/', PATH_CACHE).'/mx_barcode' : false;
-        $this->package = basename(__DIR__);
-        $this->info = ee('App')->get($this->package);
+        $this->_cache_path     = (!$this->_cache_path) ? str_replace('\\', '/', PATH_CACHE).'/mx_barcode' : false;
+        $this->package         = basename(__DIR__);
+        $this->info            = ee('App')->get($this->package);
         $data['base64_encode'] = ee()->TMPL->fetch_param('base64_encode', 'yes');
-        $data['type'] = ee()->TMPL->fetch_param('type', 'C128');
-        $data['format'] = ee()->TMPL->fetch_param('format', 'png');
-        $data['data'] = (!ee()->TMPL->fetch_param('data')) ? ee()->TMPL->tagdata : str_replace(SLASH, '/', ee()->TMPL->fetch_param('data'));
-        $data['color'] = ee()->TMPL->fetch_param('color', '#000000');
-        $data['width'] = ee()->TMPL->fetch_param('width', '2');
-        $data['height'] = ee()->TMPL->fetch_param('height', '30');
-        $data['filename'] = ee()->TMPL->fetch_param('filename', false);
+        $data['type']          = ee()->TMPL->fetch_param('type', 'C128');
+        $data['format']        = ee()->TMPL->fetch_param('format', 'png');
+        $data['data']          = (!ee()->TMPL->fetch_param('data')) ? ee()->TMPL->tagdata : str_replace(SLASH, '/', ee()->TMPL->fetch_param('data'));
+        $data['color']         = ee()->TMPL->fetch_param('color', '#000000');
+        $data['width']         = ee()->TMPL->fetch_param('width', '2');
+        $data['height']        = ee()->TMPL->fetch_param('height', '30');
+        $data['filename']      = ee()->TMPL->fetch_param('filename', false);
 
         return $this->return_data = $this->doBarcode($data);
     }
